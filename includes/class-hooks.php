@@ -115,11 +115,13 @@ class HPCO_Hooks {
 	 * Helper to determine if we should load HPCO assets/HTML on the current page.
 	 */
 	private function should_load_assets() {
+		$should_load = false;
+
 		if ( is_woocommerce() || is_shop() || is_product_category() || is_product_tag() || is_cart() || is_checkout() ) {
-			return true;
+			$should_load = true;
 		}
 
-		if ( function_exists( 'has_block' ) ) {
+		if ( ! $should_load && function_exists( 'has_block' ) ) {
 			$woo_blocks = array( 
 				'woocommerce/product-new', 
 				'woocommerce/handpicked-products', 
@@ -131,12 +133,13 @@ class HPCO_Hooks {
 			);
 			foreach ( $woo_blocks as $block ) {
 				if ( has_block( $block ) ) {
-					return true;
+					$should_load = true;
+					break;
 				}
 			}
 		}
 
-		return false;
+		return apply_filters( 'hpco_should_load_assets', $should_load );
 	}
 
 	/**
