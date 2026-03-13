@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       House Product Card Override
  * Description:       Globally overrides the WooCommerce product loop UI with the custom product card design from the House Products Carousel Block.
- * Version:           1.0.1
+ * Version:           1.0.2
  * Author:            Steven Ayo
  * Text Domain:       house-product-card-override
  * License:           GPL-2.0-or-later
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define Constants
  */
-define( 'HPCO_VERSION', '1.0.1' );
+define( 'HPCO_VERSION', '1.0.2' );
 define( 'HPCO_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'HPCO_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'HPCO_BASENAME', plugin_basename( __FILE__ ) );

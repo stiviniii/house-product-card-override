@@ -36,7 +36,7 @@ $average      = (float) $product->get_average_rating();
 $specs = HPCO_Helpers::get_product_specs( $product_id );
 ?>
 
-<article class="hpc-card">
+<article class="hpc-card" data-product-id="<?php echo esc_attr( $product_id ); ?>">
 	<a href="<?php echo esc_url( $permalink ); ?>" class="hpc-card__link" aria-label="<?php echo esc_attr( $title ); ?>">
 
 		<div class="hpc-card__image-wrapper">

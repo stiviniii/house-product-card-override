@@ -33,7 +33,7 @@
             });
 
             // Pre-load on hover
-            $(document).on('mouseenter', '.hpco-quick-buy-btn', function () {
+            $(document).on('mouseenter', '.hpc-card', function () {
                 var productId = $(this).data('product-id');
                 self.preLoadProduct(productId);
             });
