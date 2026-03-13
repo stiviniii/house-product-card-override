@@ -1,0 +1,490 @@
+/**
+ * House Product Card Override — Global Styles
+ * 
+ * 100% Identical to House Products Carousel Block.
+ */
+
+:root {
+    --hpc-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    --hpc-shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.12);
+    --hpc-rating-color: #f9a825;
+    --hpc-transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ─── Product Card ─────────────────────────────────── */
+.hpc-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--hpc-radius);
+    background-color: var(--base-3, #ffffff);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.04) 0px 4px 12px;
+    border: 1px solid var(--border, #eef0f4);
+    border-radius: 6px;
+}
+
+/* ─── Card Link ────────────────────────────────── */
+.hpc-card__link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+}
+
+.hpc-card__link:hover,
+.hpc-card__link:focus {
+    text-decoration: none;
+    color: inherit;
+}
+
+.hpc-card__link:focus-visible {
+    outline: 2px solid var(--accent, #FF8E3D);
+    outline-offset: -2px;
+    border-radius: var(--hpc-radius);
+}
+
+/* ─── Image ────────────────────────────────────── */
+.hpc-card__image-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f0f0f0 0%, #e8e8e8 100%);
+}
+
+.hpc-card__image {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    transition: opacity 0.5s ease-in-out, transform 0.8s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    margin: 0 !important;
+}
+
+.hpc-card__image--featured {
+    position: relative;
+    z-index: 1;
+}
+
+.hpc-card__image--hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 2;
+    transition: opacity 0.5s ease-in-out, transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hpc-card__image--placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    color: var(--contrast-2, #636e72);
+    background: linear-gradient(135deg, #f5f5f5 0%, #ececec 100%);
+}
+
+.hpc-card:hover .hpc-card__image--hover {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.02);
+}
+
+/* ─── Quick Buy Button ──────────────────────────── */
+.hpco-quick-buy-btn {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    transform: translateY(20px);
+    background: var(--accent, #FF8E3D);
+    color: var(--base-3, #fff);
+    border: none;
+    border-radius: 4px;
+    padding: 10px 18px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.hpc-card:hover .hpco-quick-buy-btn {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.hpco-quick-buy-btn:hover {
+    background: var(--contrast, #222);
+}
+
+/* ─── Badge ────────────────────────────────────── */
+.hpc-card__badge,
+.hpc-card .onsale {
+    position: absolute !important;
+    top: 12px !important;
+    left: 12px !important;
+    padding: 5px 12px !important;
+    background: var(--accent, #FF8E3D) !important;
+    color: var(--base-3) !important;
+    font-size: 0.7rem !important;
+    font-weight: 500 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.06em !important;
+    border-radius: 6px !important;
+    z-index: 5 !important;
+    min-height: auto !important;
+    line-height: 1 !important;
+    margin: 0 !important;
+}
+
+.hpc-card .onsale+.hpc-card__badge {
+    top: 45px !important;
+}
+
+/* ─── Body ─────────────────────────────────────── */
+.hpc-card__body {
+    padding: 1rem 1.25rem 0.75rem;
+    flex: 1;
+}
+
+.hpc-card__title {
+    margin: 0 0 0.5rem !important;
+    padding: 0 !important;
+    font-size: 1.1rem !important;
+    font-weight: 500 !important;
+    line-height: 1.35 !important;
+    color: var(--contrast, #222) !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    transition: color var(--hpc-transition) !important;
+}
+
+.hpc-card:hover .hpc-card__title {
+    color: var(--contrast, #222) !important;
+}
+
+.hpc-card__price {
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    color: var(--contrast-2, #636e72) !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.hpc-card__price del {
+    color: var(--contrast-2, #636e72) !important;
+    font-weight: 400 !important;
+    font-size: 0.85rem !important;
+    margin-right: 0.35rem !important;
+}
+
+.hpc-card__price ins {
+    text-decoration: none !important;
+    color: var(--contrast, #222) !important;
+}
+
+/* ─── Rating ───────────────────────────────────── */
+.hpc-card__rating {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin-bottom: 0.25rem;
+}
+
+.hpc-card__rating-count {
+    font-size: 0.75rem;
+    color: var(--contrast-2, #636e72);
+    margin-left: 0.15rem;
+}
+
+/* ─── Specs Row ────────────────────────────────── */
+.hpc-card__specs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 0;
+    padding: 0.85rem 1.25rem;
+    padding-top: 0;
+}
+
+.hpc-card__spec {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.875rem;
+    color: var(--contrast-2, #636e72);
+    padding: 0.25rem 0;
+    min-width: fit-content;
+}
+
+.hpc-card__spec:not(:nth-child(3n)) {
+    border-right: 1px solid var(--border, #eef0f4);
+}
+
+.hpc-card__spec-icon {
+    display: flex;
+    align-items: center;
+    color: var(--accent, #FF8E3D);
+    flex-shrink: 0;
+}
+
+.hpc-card__spec-icon svg {
+    width: 32px;
+    height: auto;
+    fill: var(--contrast, #222);
+}
+
+.hpc-card__spec-value {
+    color: var(--contrast, #222);
+    white-space: nowrap;
+    font-size: 0.85rem;
+    font-weight: 400;
+}
+
+/* ─── Quick Buy Drawer ─────────────────────────── */
+.hpco-drawer-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 99998;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.hpco-drawer-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.hpco-drawer {
+    position: fixed;
+    bottom: -100%;
+    right: 20px;
+    width: 480px;
+    max-width: calc(100% - 20px);
+    max-height: 90vh;
+    background: #fff;
+    z-index: 99999;
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.15);
+    transition: bottom 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+body.hpco-drawer-open {
+    overflow: hidden;
+}
+
+.hpco-drawer.active {
+    bottom: 20px;
+}
+
+.hpco-drawer__header {
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--border, #eef0f4);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+}
+
+.hpco-drawer__product-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 1;
+}
+
+.hpco-drawer__thumbnail {
+    width: 60px;
+    height: 60px;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #f0f0f0;
+    flex-shrink: 0;
+}
+
+.hpco-drawer__thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hpco-drawer__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.hpco-drawer__title {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--contrast, #222);
+    line-height: 1.2;
+}
+
+.hpco-drawer__price {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--accent, #FF8E3D);
+}
+
+.hpco-drawer__price ins {
+    text-decoration: none;
+}
+
+.hpco-drawer__price del {
+    font-size: 0.8rem;
+    color: var(--contrast-2, #636e72);
+    margin-right: 5px;
+}
+
+.hpco-drawer__close {
+    border: none;
+    font-size: 32px;
+    padding: 0;
+    background-color: transparent;
+    cursor: pointer;
+    color: var(--contrast, #222);
+    line-height: 1;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.hpco-drawer__close:hover {
+    color: var(--contrast, #222);
+    background-color: transparent;
+}
+
+.hpco-drawer__body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    background: #fff;
+}
+
+.wapf-field-row .wapf-field-container .wapf-field-label {
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.hpco-drawer__body .product {
+    width: 100% !important;
+    float: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.hpco-drawer__loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+}
+
+.hpco-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid var(--accent, #FF8E3D);
+    border-radius: 50%;
+    animation: hpco-spin 1s linear infinite;
+}
+
+@keyframes hpco-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* ─── Stars ────────────────────────────────────────── */
+.hpc-star {
+    color: var(--hpc-rating-color);
+    vertical-align: middle;
+}
+
+.hpc-star--empty {
+    color: #ddd;
+}
+
+/* ─── Responsive ───────────────────────────────────── */
+@media (max-width: 768px) {
+    .hpc-card__body {
+        padding: 0.85rem 1rem 0.65rem;
+    }
+
+    .hpc-card__title {
+        font-size: 0.9rem !important;
+    }
+
+    .hpc-card__price {
+        font-size: 1rem !important;
+    }
+
+    .hpc-card__specs {
+        padding: 0.65rem 1rem;
+    }
+
+    .hpc-card__spec {
+        font-size: 0.7rem;
+    }
+
+    .hpco-quick-buy-btn {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateX(-50%) translateY(0) !important;
+        bottom: 8px;
+        padding: 6px 12px;
+        font-size: 0.75rem;
+    }
+
+    .hpco-drawer {
+        width: 100%;
+        right: 0;
+        max-width: 100%;
+        border-radius: 12px 12px 0 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .hpc-card__specs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.25rem;
+        justify-content: center;
+    }
+
+    .hpco-drawer {
+        max-height: 90vh;
+    }
+}
